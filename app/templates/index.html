@@ -1,23 +1,63 @@
 {% extends 'base.html'%}
-
 {% import 'macros.html' as macro%}
 
+{% block styles%}
+{{ super() }}
+<link href="https://fonts.googleapis.com/css?family=Akronim|Bellefair|Joti+One" rel="stylesheet">
+{% endblock %}
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        {% if title %}
-        <title> {{ title }}</title>
-        {% else %}
-        <title> Welcome to the best Scripts website </title>
-        {% endif %}
-    </head>
-    {% block content %}
-    <body>
-        <div class='jumbotron'>Welcome to the best Scripts website </div>
-       
-    
-    </body>
-    {% endblock%}
-</html>
+{% block content %}
+    <div class="container" style="background-color:rgb(21, 21, 22); padding:20px; margin-top:0px; padding-top:40px; padding-bottom:400px;">
+        <div class="row" style="text-align:center; font-size:30px;">
+            <span style="font-size:40px; font-family:Lucida Sans, cursive;">Pitches</span>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3"> 
+                    <a href="" style="font-family: 'Sans', cursive; font-size:20px;">
+                        <br>
+                        Inteview Pitches
+                    </a>
+                    <br>
+                    <a href="" style="font-family: 'Sans', cursive; font-size:20px;">
+                        <br>
+                        Pick Up Lines
+                    </a>
+                    <br>
+                    <a href="" style="font-family: 'Sans', cursive; font-size:20px;">
+                        <br>
+                        Promotion Pitches
+                    </a>
+                    <br>
+                    <a href="" style="font-family: 'Sans', cursive; font-size:20px;">
+                        <br>
+                        Product Pitches
+                    </a>
+                    <br>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-9">
+            <div class="panel style="style="border: 3px solid #f2f2f2; padding:20px; margin-top:10px;">
+                <p style="font-family: 'Bellefair', serif; font-size:20px;">Write your one minute in any of the categories to the left and let other user vote and comment on it.Please also feel free to comment and vote on pitches posted by other people </p>
+                
+                <div style="text-align:center;">
+                    <a href="">
+                        <br>
+                        <span >Add a new Pitch</span>
+                    </a>
+
+                </div>
+            
+            </div>
+            
+        </div>
+    </hr>
+        <div class="all-pitches">
+            <span style="color:beige;">All pitches are displayed below</span>
+                <hr> 
+                {{macro.displayPitches(pitches)}}
+            
+
+        </div>
+
+    </div>
+
+
+{% endblock %}
