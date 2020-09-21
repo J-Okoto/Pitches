@@ -10,6 +10,8 @@ def index():
     title = 'Home - Welcome to The best Pitching Website Online'
 
     
+    search_pitch = request.args.get('pitch_query')
+    
 
     return render_template('index.html', title = title)
 
