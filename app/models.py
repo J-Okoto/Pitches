@@ -1,4 +1,5 @@
 from . import db 
+from werkzeug.security import generate_password_hash,check_password_hash
 
 
 class Pitch(db.Model):
@@ -64,6 +65,19 @@ class User( db.Model):
     role_id = db.Column(db.Integer,db.ForeignKey('roles.id'))
     
     pitch = db.relationship('Pitch',backref = 'users',lazy="dynamic")
+    password_hash = db.Column(db.String(255))
+
+    @property
+    def password(self):
+        raise AttributeError('You cannot read the password attribute')
+
+    @password.setter
+    def password(self, password):
+        self.pass_secure = generate_password_hash(password)
+
+    def verify_password(self,password):
+            return check_password_hash(self.pass_secure, password)
+
 
     def save_comment(self):
         db.session.add(self)
