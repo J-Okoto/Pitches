@@ -3,6 +3,7 @@ from . import main
 from .forms import PitchForm,CommentsForm,UpvoteForm
 from ..models import Pitch,Comment, User,PitchCategory
 from .. import db
+from flask_login import login_required
 
 # Views
 @main.route('/')
@@ -65,7 +66,7 @@ def product():
 
 
 @main.route('/pitch/new/', methods = ['GET','POST'])
-
+@login_required
 def new_pitch():
     '''
     Function that creates new pitches
