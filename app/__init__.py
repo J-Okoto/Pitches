@@ -22,5 +22,5 @@ def create_app(config_name):
     db.init_app(app)
 
     
-
+    SECRET_KEY = 'Teflondon'
     return app

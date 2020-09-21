@@ -5,7 +5,7 @@ class Config:
     General configuration parent class
     '''
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://joe:Teflondon@localhost/pitch'
-    pass
+    SECRET_KEY = 'Teflondon' 
 
 
 
@@ -26,7 +26,9 @@ class DevConfig(Config):
     Args:
         Config: The parent configuration class with General configuration settings
     '''
-    
+  
+
+
 DEBUG = True
 
 config_options = {
