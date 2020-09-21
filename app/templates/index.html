@@ -12,22 +12,22 @@
             <span style="font-size:40px; font-family:Lucida Sans, cursive;">Pitches</span>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3"> 
-                    <a href="" style="font-family: 'Sans', cursive; font-size:20px;">
+                    <a href="{{url_for('main.interview')}}" style="font-family: 'Sans', cursive; font-size:20px;">
                         <br>
                         Inteview Pitches
                     </a>
                     <br>
-                    <a href="" style="font-family: 'Sans', cursive; font-size:20px;">
+                    <a href="{{url_for('main.pick_up_line')}}" style="font-family: 'Sans', cursive; font-size:20px;">
                         <br>
                         Pick Up Lines
                     </a>
                     <br>
-                    <a href="" style="font-family: 'Sans', cursive; font-size:20px;">
+                    <a href="{{url_for('main.promotion')}}" style="font-family: 'Sans', cursive; font-size:20px;">
                         <br>
                         Promotion Pitches
                     </a>
                     <br>
-                    <a href="" style="font-family: 'Sans', cursive; font-size:20px;">
+                    <a href="{{url_for('main.product')}}" style="font-family: 'Sans', cursive; font-size:20px;">
                         <br>
                         Product Pitches
                     </a>
@@ -50,7 +50,7 @@
         </div>
     </hr>
         <div class="all-pitches">
-            <span style="color:beige;">All pitches are displayed below</span>
+            <span style="color:blue;">All pitches are displayed below</span>
                 <hr> 
                 {{macro.displayPitches(pitches)}}
             
