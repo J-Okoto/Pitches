@@ -1,6 +1,6 @@
 from flask import render_template,request, redirect, url_for, abort
 from . import main
-from .forms import PitchForm
+from .forms import PitchForm,CommentsForm
 from ..models import Pitch,Comment, User,PitchCategory
 from .. import db
 
