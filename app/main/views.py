@@ -1,7 +1,9 @@
 from flask import render_template,request, redirect, url_for, abort
 from . import main
 from .forms import PitchForm
-from ..models import Pitch
+from ..models import Pitch,Comment, User,PitchCategory
+from .. import db
+
 # Views
 @main.route('/')
 def index():
@@ -12,9 +14,55 @@ def index():
 
     
     search_pitch = request.args.get('pitch_query')
-    
+    pitches= Pitch.get_all_pitches() 
 
     return render_template('index.html', title = title)
+
+#this section consist of the category root functions
+
+@main.route('/inteview/pitches/')
+def interview():
+    '''
+    View root page function that returns the index page and its data
+    '''
+    pitches= Pitch.get_all_pitches()
+    title = 'Home - Welcome to The best Pitching Website Online'  
+    return render_template('interview.html', title = title, pitches= pitches )
+
+@main.route('/pick_up_lines/pitches/')
+def pick_up_line():
+    '''
+    View root page function that returns the index page and its data
+    '''
+    title = 'Pick Up Lines'
+
+    pitches= Pitch.get_all_pitches()
+
+    return render_template('pick_up_lines.html', title = title, pitches= pitches )
+
+@main.route('/promotion/pitches/')
+def promotion():
+    '''
+    View root page function that returns the index page and its data
+    '''
+    title = 'Promotion Pitches'
+
+    pitches= Pitch.get_all_pitches()
+
+    return render_template('promotion.html', title = title, pitches= pitches )
+
+
+@main.route('/product/pitches/')
+def product():
+    '''
+    View root page function that returns the index page and its data
+    '''
+    title = 'Product Pitches'
+    pitches= Pitch.get_all_pitches()
+    return render_template('product.html', title = title, pitches= pitches )
+ 
+#  end of category root functions
+
 
 @main.route('/pitch/new/', methods = ['GET','POST'])
 
@@ -50,6 +98,19 @@ def category(id):
 
     pitches_in_category = Pitches.get_pitch(id)
     return render_template('category.html' ,category= category, pitches= pitches_in_category)
+
+@main.route('/pitch/<int:pitch_id>')
+def pitch(pitch_id):
+
+    '''
+    View pitch page function that returns the pitch details page and its data
+    '''
+    found_pitch= get_pitch(pitch_id)
+    title = pitch_id
+    pitch_comments = Comment.get_comments(pitch_id)
+
+    return render_template('pitch.html',title= title ,found_pitch= found_pitch, pitch_comments= pitch_comments)
+
 
 
 

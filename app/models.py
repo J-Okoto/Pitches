@@ -54,11 +54,9 @@ class PitchCategory(db.Model):
         categories = PitchCategory.query.all()
         return categories
 
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(int(user_id))
 
-class User(UserMixin, db.Model):
+
+class User( db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer,primary_key = True)
     username = db.Column(db.String(255),index = True) 
@@ -108,7 +106,7 @@ class Comment(db.Model):
         comments = Comment.query.filter_by(pitch_id=id).all()
 
         return comments
-        
+
 class Role(db.Model):
     __tablename__ = 'roles'
 
