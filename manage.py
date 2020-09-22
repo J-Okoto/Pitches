@@ -1,6 +1,6 @@
 from app import create_app,db
 from flask_script import Manager,Server
-from app.models import Pitch,PitchCategory,User,Role,Comment
+from app.models import Pitch,User,Role,Comment
 from  flask_migrate import Migrate, MigrateCommand
 
 # Creating app instance
@@ -15,7 +15,7 @@ manager.add_command('db',MigrateCommand)
 
 @manager.shell
 def make_shell_context():
-    return dict(app = app,db = db,Pitch= Pitch,Pitchcategory=PitchCategory, Role = Role, Comment = Comment,User=User )
+    return dict(app = app,db = db,Pitch= Pitch, Role = Role, Comment = Comment,User=User )
 
 manager.add_command('server',Server)
 if __name__ == '__main__':
