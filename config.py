@@ -6,7 +6,7 @@ class Config:
     '''
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://joe:Teflondon@localhost/pitch'
     SECRET_KEY = 'Teflondon' 
-
+    UPLOADED_PHOTOS_DEST ='app/static/photos'
 
 
 class ProdConfig(Config):
