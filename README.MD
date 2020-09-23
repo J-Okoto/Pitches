@@ -53,7 +53,7 @@ This is an app that allows users to create,submit,vote pitches based on categori
 
 # Support and Contacts
 
-In case You have any issues using this code please do no hesitate to get in touch with me through khalifngeno@gmail.com or leave a commit here on github.
+In case You have any issues using this code please do no hesitate to get in touch with me through okotojr@gmail.com or leave a commit here on github.
 
 # License
 
