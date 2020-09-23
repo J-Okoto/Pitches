@@ -9,6 +9,18 @@ class Config:
     UPLOADED_PHOTOS_DEST ='app/static/photos'
 
 
+
+    #  email configurations
+    MAIL_SERVER = 'smtp.googlemail.com'
+    MAIL_PORT = 587 
+    MAIL_USE_TLS = True
+    MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
+    MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
+    SUBJECT_PREFIX = 'Pitch Quotes'
+    SENDER_EMAIL = 'jtwiceo@gmail.com'
+
+
+
 class ProdConfig(Config):
     '''
     Production  configuration child class
